@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="./github/banner.svg" alt="Shadow Cut">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Shadow Cut
 
-## Available Scripts
+<p align="center">
+  📄🔒
+  <a href="https://github.com/yourusername/shadow-cut">
+    <img src="https://img.shields.io/github/license/sp1d5r/shadow-cut" alt="License">
+  </a>
+  💬
+  <a href="https://github.com/yourusername/shadow-cut/issues">
+    <img src="https://img.shields.io/github/issues/sp1d5r/shadow-cut" alt="Issues">
+  </a>
+  🛠️
+  <a href="https://github.com/yourusername/shadow-cut/pulls">
+    <img src="https://img.shields.io/github/issues-pr/sp1d5r/shadow-cut" alt="Pull Requests">
+  </a>
+</p>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Shadow Cut is a brand that aims to make cutting longer form videos into TikTok format on browser. With Shadow Cut, you can upload a video, crop it using a black box overlay, and generate a new video that only follows the video inside the box.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 📹 Upload a video file
+- 🖼️ Add a black box overlay to the video
+- 🕹️ Adjust the position of the black box
+- ✂️ Crop and generate a new video that only follows the video inside the box
+- 🧠 Automatically determine where to position the black box using AI (coming soon!)
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Shadow Cut is built using the following technologies:
 
-### `npm run build`
+- React: A JavaScript library for building user interfaces
+- video.js: A web video player built with HTML5 and CSS
+- FFmpeg.js: A JavaScript port of FFmpeg that can run in the browser
+- CSS: Cascading Style Sheets for styling the user interface
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get started with Shadow Cut, simply clone this repository and run the following command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
