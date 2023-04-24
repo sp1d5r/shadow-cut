@@ -1,0 +1,19 @@
+.video-player {
+    width: 100vw;
+    height: 50vh;
+}
+
+.video-js, .vjs-tech  {
+    padding-top: 0px!important;
+    width: auto!important;
+    min-width: 2px;
+
+}
+
+.video-wrapper > video-js {
+    height: 60vh!important;
+}
+
+.video-wrapper {
+    height: 60vh;
+}
