@@ -6,8 +6,7 @@
 .video-js, .vjs-tech  {
     padding-top: 0px!important;
     width: auto!important;
-    min-width: 2px;
-
+    min-width: 80vw;
 }
 
 .video-wrapper > video-js {

@@ -1,17 +1,20 @@
 import React, { useState, useRef } from "react";
-import BlackBox from "./components/BlackBox";
-import Controls from "./components/Controls";
-import VideoPlayer from "./components/VideoPlayer";
+import BlackBox from "./components/backend-components/BlackBox";
+import Controls from "./components/backend-components/Controls";
+import VideoPlayer from "./components/backend-components/VideoPlayer";
 import videojs from "video.js";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+import Landing from "./components/final-components/landing/Landing";
+import './App.css';
 
 function App() {
   const [videoUrl, setVideoUrl] = useState("");
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
   const [boxDimensions, setBoxDimensions] = useState({ width: 150, height: 300 });
-  const [boxPositions, setBoxPositions] = useState({});
+  const [boxPositions, setBoxPositions] = useState({"0":{"boxPosition":{"x":0,"y":0},"boxDimensions":{"width":150,"height":300}}});
   const [currentTime, setCurrentTime] = useState("0");
   const [refresh, setRefresh] = useState(false);
+
 
   const boxPositionsMapping = {"1.447912":{"boxPosition":{"x":144,"y":10},"boxDimensions":{"width":150,"height":300}},"5.155378":{"boxPosition":{"x":439,"y":13},"boxDimensions":{"width":150,"height":300}},"8.787629":{"boxPosition":{"x":321,"y":7},"boxDimensions":{"width":150,"height":300}},"16.718198":{"boxPosition":{"x":421,"y":11},"boxDimensions":{"width":150,"height":300}},"21.806105":{"boxPosition":{"x":286,"y":7},"boxDimensions":{"width":150,"height":300}},"28.166964":{"boxPosition":{"x":180,"y":-8},"boxDimensions":{"width":150,"height":300}},"35.066662":{"boxPosition":{"x":79,"y":8},"boxDimensions":{"width":150,"height":300}}}
 
@@ -56,7 +59,6 @@ function App() {
   };
 
   const handleBoxDimensionsChange = (dimensions, multiplier) => {
-      console.log('box-dimensions', dimensions)
       const _dimensions = {width: dimensions.width*multiplier, height: dimensions.height*multiplier}
     setBoxDimensions(_dimensions);
       setMultiplier(multiplier);
@@ -117,32 +119,44 @@ function App() {
         outputVideoRef.current.src = videoURL;
     };
 
+    if (true) {
+        return <Landing />
+    } else {
+        return (
+            <div className="App">
+                <input type="file" onChange={handleVideoChange} />
+                <div style={{width: "80vw", position: "relative"}}>
+                    <VideoPlayer
+                        boxMapping={boxPositions}
+                        setBoxMapping={setBoxPositions}
+                        updateBoxPosition={setBoxPosition}
+                        options={videoJsOptions}
+                        onReady={handlePlayerReady}
+                        setCurrentTime={setCurrentTime}/>
+                    <BlackBox
+                        boxPosition={boxPosition}
+                        setBoxPosition={setBoxPosition}
+                        boxDimensions={boxDimensions}
+                        setBoxDimensions={setBoxDimensions}
+                        onPositionChange={handleBoxPositionChange}
+                        onDimensionsChange={handleBoxDimensionsChange}
+                        multiplier={multiplier}
+                    />
+                </div>
+                <input type="range" id="volume" name="volume"
+                       min="0" max="2" step={"0.1"} value={multiplier}
+                       onChange={(e) => {
+                           handleBoxDimensionsChange(boxDimensions, (parseFloat(e.target.value)))
+                       }}
+                />
 
-  return (
-      <div className="App">
-        <input type="file" onChange={handleVideoChange} />
-          <div style={{width: "80vw", position: "relative"}}>
-              <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} setCurrentTime={setCurrentTime}/>
-              <BlackBox
-                  position={boxPosition}
-                  dimensions={boxDimensions}
-                  onPositionChange={handleBoxPositionChange}
-                  onDimensionsChange={handleBoxDimensionsChange}
-                  multiplier={multiplier}
-              />
-          </div>
-          <input type="range" id="volume" name="volume"
-                 min="0" max="2" step={"0.1"} value={multiplier}
-                onChange={(e) => {
-                    handleBoxDimensionsChange(boxDimensions, (parseFloat(e.target.value)))
-                }}
-          />
+                {JSON.stringify(boxPositions)}
+                <Controls videoFile={videoFile} onCrop={() => {clipVideo(videoFile)}}/>
+                <video ref={outputVideoRef} controls />
+            </div>
+        );
+    }
 
-          {JSON.stringify(boxPositions)}
-        <Controls videoFile={videoFile} onCrop={() => {clipVideo(videoFile)}}/>
-          <video ref={outputVideoRef} controls />
-      </div>
-  );
 }
 
 export default App;

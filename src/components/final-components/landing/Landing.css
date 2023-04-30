@@ -1,0 +1,61 @@
+.landing {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #1C181B 0%, #1D191C 100%);
+    flex-direction: column;
+    position: relative;
+}
+
+.landing-text {
+    font-family: 'Unna', serif;
+    color: white;
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+.landing-button {
+    font-family: 'Unna', serif;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 150px;
+    font-size: 1.5rem;
+}
+
+.landing-button:hover {
+    background-color: #000;
+}
+
+@keyframes example {
+    from {top: -100vh}
+    to {top: 0vh;}
+}
+
+
+.landing-overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    animation-name: example;
+    animation-duration: 1s;
+    background-color: white;
+}
+
+@keyframes landing-main-animation {
+    0% {opacity: 0}
+    66% {opacity: 0}
+    100% {opacity: 1}
+}
+
+.landing-main-content {
+    animation-name: landing-main-animation;
+    animation-duration: 2s;
+}
